@@ -1,10 +1,13 @@
 package com.newsapp.di
 
+import android.content.Context
+import androidx.room.Room
 import com.newsapp.api.ApiInterface
 import com.newsapp.util.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -36,4 +39,14 @@ object AppModule {
 
     @Provides
     fun provideApi(retrofit: Retrofit) : ApiInterface = retrofit.create(ApiInterface::class.java)
+
+
+
+/*    @Provides
+    fun provideAppDatabase(@ApplicationContext context: Context) =
+        Room.databaseBuilder(
+            context,
+            null,
+            null
+        )*/
 }
