@@ -1,6 +1,8 @@
 package com.newsapp.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -31,6 +33,12 @@ class NewsRecyclerAdapter(private val articles: List<ArticlesItem>) :
 
         articles[position].urlToImage?.let {
             Glide.with(holder.itemView.context).load(it).into(holder.binding.articleIV)
+        }
+        Log.d("TAG", "onBindViewHolder: shit"+articles[position].isRead)
+        if(articles[position].isRead){
+            holder.binding.readStatusTV.text = "Status : Read"
+        }else{
+            holder.binding.readStatusTV.visibility = View.GONE
         }
     }
 

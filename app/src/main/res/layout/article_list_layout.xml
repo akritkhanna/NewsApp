@@ -15,15 +15,28 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
+
     <TextView
-        android:id="@+id/sourceTV"
+        android:id="@+id/readStatusTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/publishedAtTV"
+        app:layout_constraintTop_toBottomOf="@+id/publishedAtTV"
+        tools:text="Status : Read" />
+
+    <TextView
+        android:id="@+id/sourceTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        tools:text="SOURCE"
         android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="@+id/articleIV"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/articleIV" />
+        app:layout_constraintTop_toBottomOf="@+id/articleIV"
+        tools:text="SOURCE"
+        android:maxLines="1"
+        android:ellipsize="end"/>
 
     <TextView
         android:id="@+id/titleTV"
@@ -56,12 +69,13 @@
 
     <TextView
         android:id="@+id/publishedAtTV"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        tools:text="PUBLISHED AT"
         android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="@+id/articleIV"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sourceTV" />
+        app:layout_constraintTop_toBottomOf="@+id/sourceTV"
+        tools:text="PUBLISHED AT" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

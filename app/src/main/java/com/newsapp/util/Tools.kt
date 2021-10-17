@@ -1,6 +1,8 @@
 package com.newsapp.util
 
-import android.util.Log
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -30,6 +32,18 @@ object Tools {
         }
         return dateToReturn
 
+    }
+
+    fun checkInternet(context: Context?): Boolean {
+        return if (context != null) {
+            val cm = context
+                .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetwork = cm.activeNetworkInfo
+            (activeNetwork != null
+                    && activeNetwork.isConnected)
+        } else {
+            false
+        }
     }
 
 

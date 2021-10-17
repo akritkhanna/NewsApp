@@ -22,7 +22,7 @@ class NewsViewModel @Inject constructor(private val repository: NewsRepository) 
     }
 
 
-    private fun getTopHeadlines(countryCode: String, pageSize: Int) = viewModelScope.launch {
+    fun getTopHeadlines(countryCode: String, pageSize: Int) = viewModelScope.launch {
 
         topHeadlines.postValue(Resource.Loading())
 
